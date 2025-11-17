@@ -1,11 +1,11 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.convention.android.application)
+    alias(libs.plugins.convention.android.application.compose)
     alias(libs.plugins.compose.multiplatform)
-    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.compose.hot.reload)
 }
 
@@ -28,8 +28,6 @@ kotlin {
         }
     }
 
-
-
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
@@ -41,15 +39,13 @@ kotlin {
             implementation(projects.core.designsystem)
             implementation(projects.core.presentation)
 
-
-            implementation(projects.feature.auth.presentation)
             implementation(projects.feature.auth.domain)
+            implementation(projects.feature.auth.presentation)
 
             implementation(projects.feature.chat.data)
+            implementation(projects.feature.chat.database)
             implementation(projects.feature.chat.domain)
             implementation(projects.feature.chat.presentation)
-            implementation(projects.feature.chat.database)
-
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -59,9 +55,6 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.jetbrains.compose.viewmodel)
             implementation(libs.jetbrains.lifecycle.compose)
-        }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
         }
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
