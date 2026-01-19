@@ -1,6 +1,6 @@
 package com.plcoding.core.domain.util
 
-sealed interface DataError {
+sealed interface DataError: Error{
     enum class Remote: DataError{  //Error from remote like no internet, token expired  etc
         BAD_REQUEST,
         REQUEST_TIMEOUT,
@@ -22,3 +22,4 @@ sealed interface DataError {
         UNKNOWN
     }
 }
+
