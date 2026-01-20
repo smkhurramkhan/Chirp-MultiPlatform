@@ -1,4 +1,4 @@
-package com.plcoding.core.designsystem
+package com.plcoding.core.designsystem.preview
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
