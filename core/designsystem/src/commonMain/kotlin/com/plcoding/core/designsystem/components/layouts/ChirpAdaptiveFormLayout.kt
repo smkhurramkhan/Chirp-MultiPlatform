@@ -38,8 +38,8 @@ fun ChirpAdaptiveFormLayout(
     headerText: String,
     errorText: String,
     logo: @Composable () -> Unit,
-    formContent: @Composable ColumnScope.() -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    formContent: @Composable ColumnScope.() -> Unit
 ) {
 
     val configuration = currentDeviceConfiguration()
@@ -77,6 +77,7 @@ fun ChirpAdaptiveFormLayout(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 modifier = modifier.fillMaxSize()
                     .consumeWindowInsets(WindowInsets.displayCutout)
+                    .consumeWindowInsets(WindowInsets.navigationBars)
             ) {
                 Column(
                     modifier = modifier.weight(1f),
@@ -87,13 +88,17 @@ fun ChirpAdaptiveFormLayout(
                     AuthHeaderSection(
                         headerText = headerText,
                         headerColor = headerColor,
-                        errorText = errorText
+                        errorText = errorText,
+                        headerTextAlignment = TextAlign.Start
                     )
                 }
                 ChirpSurface(
                     modifier = Modifier.weight(1f),
                 ) {
+                    Spacer(modifier = Modifier.height(16.dp))
                     formContent()
+
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
             }
         }
@@ -116,7 +121,6 @@ fun ChirpAdaptiveFormLayout(
                         .background(MaterialTheme.colorScheme.surface)
                         .padding(horizontal = 24.dp, vertical = 32.dp),
 
-                    verticalArrangement = Arrangement.spacedBy(32.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     AuthHeaderSection(
@@ -138,15 +142,15 @@ fun ColumnScope.AuthHeaderSection(
     headerText: String,
     headerColor: Color,
     errorText: String? = null,
-    modifier: Modifier = Modifier
+    headerTextAlignment: TextAlign  = TextAlign.Center
 
 ) {
     Text(
         text = headerText,
         style = MaterialTheme.typography.titleLarge,
         color = headerColor,
-        textAlign = TextAlign.Center,
-        modifier = modifier.fillMaxWidth()
+        textAlign = headerTextAlignment,
+        modifier = Modifier.fillMaxWidth()
     )
     AnimatedVisibility(
         visible = errorText != null
@@ -156,8 +160,8 @@ fun ColumnScope.AuthHeaderSection(
                 text = errorText,
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.error,
-                modifier = modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = headerTextAlignment
             )
         }
     }
