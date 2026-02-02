@@ -1,3 +1,4 @@
+
 package com.plcoding.core.data.networking
 
 import com.plcoding.core.data.BuildKonfig
@@ -41,15 +42,13 @@ class HttpClientFactory(
                 }
                 level = LogLevel.ALL
             }
-            install(WebSockets){
+            install(WebSockets) {
                 pingIntervalMillis = 20_000L
             }
             defaultRequest {
                 header("x-api-key", BuildKonfig.API_KEY)
                 contentType(ContentType.Application.Json)
-
             }
         }
     }
-
 }
