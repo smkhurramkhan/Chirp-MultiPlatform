@@ -9,4 +9,8 @@ interface AuthService {
         username: String,
         password: String
     ): EmptyResult<DataError.Remote>
+
+    suspend fun resendEmail(
+        email: String
+    ): EmptyResult<DataError.Remote>
 }

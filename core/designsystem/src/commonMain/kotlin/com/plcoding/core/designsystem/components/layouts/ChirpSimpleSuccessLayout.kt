@@ -1,13 +1,11 @@
 package com.plcoding.core.designsystem.components.layouts
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,6 +27,7 @@ fun ChirpSimpleSuccessLayout(
     icon: @Composable () -> Unit,
     primaryButton: @Composable () -> Unit,
     secondaryButton: @Composable (() -> Unit)? = null,
+    secondaryError: String? = null,
     modifier: Modifier = Modifier
 ) {
 
@@ -63,9 +62,21 @@ fun ChirpSimpleSuccessLayout(
 
             primaryButton()
 
-            if(secondaryButton!=null){
+            if (secondaryButton != null) {
                 Spacer(modifier = Modifier.height(8.dp))
                 secondaryButton()
+
+                if (secondaryError != null) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = secondaryError,
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.error
+
+                    )
+                }
             }
             Spacer(modifier = Modifier.height(8.dp))
 
@@ -98,7 +109,8 @@ fun ChirpSimpleSuccessLayoutPreview() {
                     style = ChirpButtonStyle.SECONDARY,
                     modifier = Modifier.fillMaxWidth()
                 )
-            }
+            },
+            secondaryError = "Multiple requests called wait 3 minutes please."
         )
     }
 }
