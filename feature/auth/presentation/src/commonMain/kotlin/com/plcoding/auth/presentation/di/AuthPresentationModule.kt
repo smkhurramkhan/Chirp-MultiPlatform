@@ -8,6 +8,6 @@ import org.koin.dsl.module
 
 val authPresentationModule = module {
     viewModelOf(::RegisterViewModel)
-    viewModelOf(::RegisterViewModel)
+    viewModelOf(::RegisterSuccessViewModel)
     viewModelOf(::EmailVerificationViewModel)
 }

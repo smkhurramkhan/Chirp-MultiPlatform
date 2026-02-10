@@ -5,6 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navDeepLink
 import androidx.navigation.navigation
+import com.plcoding.auth.presentation.email_verification.EmailVerificationRoot
 import com.plcoding.auth.presentation.register.RegisterRoot
 import com.plcoding.auth.presentation.register_success.RegisterSuccessRoot
 
@@ -38,7 +39,7 @@ fun NavGraphBuilder.authGraph(
                 }
             )
         ) {
-            RegisterSuccessRoot()
+            EmailVerificationRoot()
         }
     }
 
