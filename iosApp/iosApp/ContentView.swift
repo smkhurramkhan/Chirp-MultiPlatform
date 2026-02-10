@@ -12,5 +12,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
 		ContentView()
+            .onOpenURL { URL in
+                ExternalUriHandler.shared.onNewUri(uri: URL.absoluteString)
+            }
 	}
 }
