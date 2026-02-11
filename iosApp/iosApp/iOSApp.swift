@@ -1,16 +1,20 @@
 import SwiftUI
-import composeApp
+import ComposeApp
 
 @main
 struct iOSApp: App {
-    
-    init(){
+
+    init() {
         InitKoinKt.doInitKoin()
     }
-    
-	var body: some Scene {
-		WindowGroup {
-			ContentView()
-		}
-	}
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .ignoresSafeArea(.all)
+                .onOpenURL { url in
+                    ExternalUriHandler.shared.onNewUri(uri: url.absoluteString)
+                }
+        }
+    }
 }

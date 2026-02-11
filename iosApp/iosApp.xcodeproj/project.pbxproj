@@ -173,7 +173,7 @@
     			);
     			runOnlyForDeploymentPostprocessing = 0;
     			shellPath = /bin/sh;
-    			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
+    			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :composeApp:embedAndSignAppleFrameworkForXcode\n";
     		};
     /* End PBXShellScriptBuildPhase section */
 
@@ -306,64 +306,64 @@
     			};
     			name = Release;
     		};
-    		7555FFA6242A565B00829871 /* Debug */ = {
-    			isa = XCBuildConfiguration;
-    			buildSettings = {
-    				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-    				CODE_SIGN_STYLE = Automatic;
-		DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
-    				ENABLE_PREVIEWS = YES;
-    				FRAMEWORK_SEARCH_PATHS = (
-    					"$(inherited)",
-					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+		7555FFA6242A565B00829871 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
-    				INFOPLIST_FILE = iosApp/Info.plist;
-            IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-    				LD_RUNPATH_SEARCH_PATHS = (
-    					"$(inherited)",
-    					"@executable_path/Frameworks",
-    				);
-    				OTHER_LDFLAGS = (
-    					"$(inherited)",
-    					"-framework",
-    					shared,
-    				);
-    				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
-    				PRODUCT_NAME = "$(TARGET_NAME)";
-    				SWIFT_VERSION = 5.0;
-    				TARGETED_DEVICE_FAMILY = "1,2";
-    			};
-    			name = Debug;
-    		};
-    		7555FFA7242A565B00829871 /* Release */ = {
-    			isa = XCBuildConfiguration;
-    			buildSettings = {
-    				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-    				CODE_SIGN_STYLE = Automatic;
-    				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
-    				ENABLE_PREVIEWS = YES;
-    				FRAMEWORK_SEARCH_PATHS = (
-    					"$(inherited)",
-    					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
-    				);
-    				INFOPLIST_FILE = iosApp/Info.plist;
-            IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-    				LD_RUNPATH_SEARCH_PATHS = (
-    					"$(inherited)",
-    					"@executable_path/Frameworks",
-    				);
-    				OTHER_LDFLAGS = (
-    					"$(inherited)",
-    					"-framework",
-    					shared,
-    				);
-    				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
-    				PRODUCT_NAME = "$(TARGET_NAME)";
-    				SWIFT_VERSION = 5.0;
-    				TARGETED_DEVICE_FAMILY = "1,2";
-    			};
-    			name = Release;
-    		};
+				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					ComposeApp,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7555FFA7242A565B00829871 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					ComposeApp,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
     /* End XCBuildConfiguration section */
 
     /* Begin XCConfigurationList section */
