@@ -1,9 +1,11 @@
 package com.plcoding.core.data.di
 
+import com.plcoding.core.data.auth.DatStoreSessionStorage
 import com.plcoding.core.data.auth.KtorAuthService
 import com.plcoding.core.data.logging.KermitLogger
 import com.plcoding.core.data.networking.HttpClientFactory
 import com.plcoding.core.domain.auth.AuthService
+import com.plcoding.core.domain.auth.SessionStorage
 import com.plcoding.core.domain.logging.ChirpLogger
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
@@ -20,4 +22,5 @@ val coreDataModule = module {
         HttpClientFactory(get()).create(get())
     }
     singleOf(::KtorAuthService) bind AuthService::class
+    singleOf(::DatStoreSessionStorage) bind SessionStorage::class
 }
