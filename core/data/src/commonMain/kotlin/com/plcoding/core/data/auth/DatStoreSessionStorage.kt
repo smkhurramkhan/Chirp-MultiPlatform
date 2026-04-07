@@ -20,7 +20,7 @@ data class DatStoreSessionStorage(
         ignoreUnknownKeys = true
     }
 
-    override fun observeAuthInfo9(): Flow<AuthInfo?> {
+    override fun observeAuthInfo(): Flow<AuthInfo?> {
         return dataStore.data.map { preferences ->
             val serializedJson = preferences[authInfoKey]
             serializedJson?.let {
