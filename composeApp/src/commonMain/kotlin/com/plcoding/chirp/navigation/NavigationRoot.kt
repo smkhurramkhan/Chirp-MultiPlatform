@@ -1,6 +1,7 @@
 package com.plcoding.chirp.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -11,11 +12,12 @@ import com.plcoding.chat.presentation.chat_list.ChatListScreenRoot
 
 @Composable
 fun NavigationRoot(
-    navController: NavHostController
+    navController: NavHostController,
+    startDestination: Any
 ) {
     NavHost(
         navController = navController,
-        startDestination = AuthGraphRoutes.Graph
+        startDestination = startDestination
     ) {
         authGraph(
             navController = navController,
