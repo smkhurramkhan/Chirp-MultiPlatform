@@ -10,13 +10,14 @@ import com.plcoding.chat.presentation.chat_list.ChatListRoute
 import com.plcoding.chirp.navigation.DeepLinkListener
 import com.plcoding.chirp.navigation.NavigationRoot
 import com.plcoding.core.designsystem.theme.ChirpTheme
+import com.plcoding.core.presentation.util.ObserveAsEvents
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 @Preview
 fun App(
-    onAuthenticationChecked:()-> Unit = {},
+    onAuthenticationChecked: () -> Unit = {},
     viewModel: MainViewModel = koinViewModel()
 ) {
     val navController = rememberNavController()
@@ -24,19 +25,32 @@ fun App(
 
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    LaunchedEffect(state.isCheckingAuth){
-        if(!state.isCheckingAuth){
+    LaunchedEffect(state.isCheckingAuth) {
+        if (!state.isCheckingAuth) {
             onAuthenticationChecked()
         }
     }
 
+    ObserveAsEvents(viewModel.events) { event ->
+        when (event) {
+            is MainEvent.OnSessionExpired -> {
+                navController.navigate(AuthGraphRoutes.Graph) {
+                    popUpTo(AuthGraphRoutes.Graph) {
+                        inclusive = false
+                    }
+                }
+            }
+        }
+
+    }
+
     ChirpTheme {
-        if(!state.isCheckingAuth) {
+        if (!state.isCheckingAuth) {
             NavigationRoot(
                 navController = navController,
-                startDestination = if(state.isLoggedIn){
+                startDestination = if (state.isLoggedIn) {
                     ChatListRoute
-                }else{
+                } else {
                     AuthGraphRoutes.Graph
                 }
             )
