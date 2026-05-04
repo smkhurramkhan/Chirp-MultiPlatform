@@ -8,7 +8,6 @@
     <string name="resent_verification_email">Successfully resent verification email</string>
     <string name="username">Username</string>
     <string name="register">Register</string>
-    <string name="forgot_password">Forgot password?</string>
     <string name="create_account">Create account</string>
     <string name="close">Close</string>
     <string name="verifying_account">Verifying account</string>
@@ -29,4 +28,7 @@
     <string name="error_invalid_username">The username must be between 3 and 20 characters</string>
     <string name="error_invalid_credentials">Email or password is incorrect</string>
     <string name="error_email_not_verified">Unable to login because your email is not verified.</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="submit">Submit</string>
+    <string name="email_sent_successfully">We have sent you an email with a link to reset your password</string>
 </resources>

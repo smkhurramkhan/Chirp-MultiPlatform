@@ -36,7 +36,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 fun ChirpAdaptiveFormLayout(
     headerText: String,
-    errorText: String,
+    errorText: String?,
     logo: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     formContent: @Composable ColumnScope.() -> Unit
