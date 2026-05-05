@@ -31,6 +31,7 @@ import com.plcoding.core.designsystem.components.buttons.ChirpButton
 import com.plcoding.core.designsystem.components.buttons.ChirpButtonStyle
 import com.plcoding.core.designsystem.components.layouts.ChirpAdaptiveResultLayout
 import com.plcoding.core.designsystem.components.layouts.ChirpSimpleResultLayout
+import com.plcoding.core.designsystem.components.layouts.ChirpSnackbarScaffold
 import com.plcoding.core.designsystem.theme.ChirpTheme
 import com.plcoding.core.designsystem.theme.extended
 import org.jetbrains.compose.resources.stringResource
@@ -63,6 +64,7 @@ fun EmailVerificationScreen(
     state: EmailVerificationState,
     onAction: (EmailVerificationAction) -> Unit
 ) {
+    ChirpSnackbarScaffold {
     ChirpAdaptiveResultLayout {
         onAction
         when {
@@ -115,6 +117,7 @@ fun EmailVerificationScreen(
                 )
             }
         }
+    }
     }
 
 }

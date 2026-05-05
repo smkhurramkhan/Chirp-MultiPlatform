@@ -29,7 +29,7 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun RegisterSuccessRoot(
     viewModel: RegisterSuccessViewModel = koinViewModel(),
-    onLoginClick:()-> Unit
+    onLoginClick: () -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -50,8 +50,8 @@ fun RegisterSuccessRoot(
 
     RegisterSuccessScreen(
         state = state,
-        onAction = { action->
-            when(action){
+        onAction = { action ->
+            when (action) {
                 RegisterSuccessAction.OnLoginClick -> onLoginClick()
                 else -> Unit
             }
@@ -68,45 +68,47 @@ fun RegisterSuccessScreen(
     onAction: (RegisterSuccessAction) -> Unit,
     snackbarHostState: SnackbarHostState
 ) {
-    ChirpSnackbarScaffold(
-        snackbarHostState = snackbarHostState
-    ) {
-        ChirpAdaptiveResultLayout {
-            ChirpSimpleResultLayout(
-                title = stringResource(Res.string.account_successfully_created),
-                description = stringResource(
-                    Res.string.verification_email_send_to_x,
-                    state.registeredEmail
-                ),
-                icon = {
-                    ChirpSuccessMark()
-                },
-                primaryButton = {
-                    ChirpButton(
-                        text = stringResource(Res.string.login),
-                        onClick = {
-                            onAction(RegisterSuccessAction.OnLoginClick)
-                        },
-                        modifier = Modifier.fillMaxWidth()
+    ChirpSnackbarScaffold {
+        ChirpSnackbarScaffold(
+            snackbarHostState = snackbarHostState
+        ) {
+            ChirpAdaptiveResultLayout {
+                ChirpSimpleResultLayout(
+                    title = stringResource(Res.string.account_successfully_created),
+                    description = stringResource(
+                        Res.string.verification_email_send_to_x,
+                        state.registeredEmail
+                    ),
+                    icon = {
+                        ChirpSuccessMark()
+                    },
+                    primaryButton = {
+                        ChirpButton(
+                            text = stringResource(Res.string.login),
+                            onClick = {
+                                onAction(RegisterSuccessAction.OnLoginClick)
+                            },
+                            modifier = Modifier.fillMaxWidth()
 
-                    )
-                },
-                secondaryButton = {
-                    ChirpButton(
-                        text = stringResource(Res.string.resend_verification_email),
-                        onClick = {
-                            onAction(RegisterSuccessAction.OnResendVerificationEmailClick)
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                        enabled = !state.isResendingVerificationEmail,
-                        isLoading = state.isResendingVerificationEmail,
-                        style = ChirpButtonStyle.SECONDARY
+                        )
+                    },
+                    secondaryButton = {
+                        ChirpButton(
+                            text = stringResource(Res.string.resend_verification_email),
+                            onClick = {
+                                onAction(RegisterSuccessAction.OnResendVerificationEmailClick)
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            enabled = !state.isResendingVerificationEmail,
+                            isLoading = state.isResendingVerificationEmail,
+                            style = ChirpButtonStyle.SECONDARY
 
-                    )
-                },
-                secondaryError = state.resendVerificationError?.asString()
+                        )
+                    },
+                    secondaryError = state.resendVerificationError?.asString()
 
-            )
+                )
+            }
         }
     }
 }
