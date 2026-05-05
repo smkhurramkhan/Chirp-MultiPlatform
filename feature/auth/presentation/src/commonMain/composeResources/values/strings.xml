@@ -36,4 +36,5 @@
     <string name="confirm_new_password">Confirm New Password</string>
     <string name="error_reset_password_token_invalid">It seem like the reset password link is not valid or has expired. Please request a new email.</string>
     <string name="reset_password_successfully">Your password has been successfully changed. You can login with your new password.</string>
+    <string name="error_same_password">The new password can't be be equal to the old one.</string>
 </resources>

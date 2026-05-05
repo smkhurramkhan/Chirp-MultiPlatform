@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import chirp.feature.auth.presentation.generated.resources.Res
 import chirp.feature.auth.presentation.generated.resources.error_reset_password_token_invalid
+import chirp.feature.auth.presentation.generated.resources.error_same_password
 import com.plcoding.core.domain.auth.AuthService
 import com.plcoding.core.domain.util.DataError
 import com.plcoding.core.domain.util.onFailure
@@ -86,13 +87,15 @@ class ResetPasswordViewModel(
                     _state.update {
                         it.copy(
                             isLoading = false,
-                            isResetSuccessful = true
+                            isResetSuccessful = true,
+                            errorText = null
                         )
                     }
                 }
                 .onFailure { error ->
                     val errorText = when (error) {
                         DataError.Remote.UNAUTHORIZED -> UiText.Resource(Res.string.error_reset_password_token_invalid)
+                        DataError.Remote.CONFLICT -> UiText.Resource(Res.string.error_same_password)
                         else -> error.toUiText()
                     }
                     _state.update {
