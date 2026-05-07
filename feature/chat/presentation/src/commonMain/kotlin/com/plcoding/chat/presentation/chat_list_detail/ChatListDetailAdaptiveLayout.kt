@@ -17,14 +17,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.backhandler.BackHandler
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.plcoding.core.designsystem.theme.extended
 import kotlinx.coroutines.launch
 import org.koin.compose.viewmodel.koinViewModel
 
-@OptIn(ExperimentalMaterial3AdaptiveApi::class)
+@OptIn(ExperimentalMaterial3AdaptiveApi::class, ExperimentalComposeUiApi::class,
+    ExperimentalComposeUiApi::class
+)
 @Composable
 fun ChatListDetailAdaptiveLayout(
     chatListDetailViewModel: ChatListDetailViewModel = koinViewModel<ChatListDetailViewModel>()
@@ -36,6 +40,12 @@ fun ChatListDetailAdaptiveLayout(
     )
 
     val scope = rememberCoroutineScope()
+
+    BackHandler(enabled = scaffoldNavigator.canNavigateBack()) {
+        scope.launch {
+            scaffoldNavigator.navigateBack()
+        }
+    }
 
     ListDetailPaneScaffold(
         directive = scaffoldDirective,
