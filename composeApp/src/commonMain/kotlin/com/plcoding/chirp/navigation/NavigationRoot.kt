@@ -9,6 +9,8 @@ import com.plcoding.auth.presentation.navigation.AuthGraphRoutes
 import com.plcoding.auth.presentation.navigation.authGraph
 import com.plcoding.chat.presentation.chat_list.ChatListRoute
 import com.plcoding.chat.presentation.chat_list.ChatListScreenRoot
+import com.plcoding.chat.presentation.navigation.ChatGraphRoutes
+import com.plcoding.chat.presentation.navigation.chatGraph
 
 @Composable
 fun NavigationRoot(
@@ -22,7 +24,7 @@ fun NavigationRoot(
         authGraph(
             navController = navController,
             onLoginSuccess = {
-                navController.navigate(ChatListRoute){
+                navController.navigate(ChatGraphRoutes.Graph){
                     popUpTo(AuthGraphRoutes.Graph){
                         inclusive = true
                     }
@@ -30,9 +32,9 @@ fun NavigationRoot(
             }
         )
 
-        composable<ChatListRoute> {
-            ChatListScreenRoot()
-        }
+        chatGraph(
+            navController = navController
+        )
 
     }
 }
