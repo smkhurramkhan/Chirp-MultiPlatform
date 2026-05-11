@@ -7,12 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.plcoding.core.designsystem.theme.ChirpTheme
-import com.plcoding.core.designsystem.theme.extended
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun ChirpStackedAvatars(
-    avatars:List<AvatarUi>,
+    avatars:List<ChatParticipantUi>,
     modifier: Modifier = Modifier,
     size: AvatarSize = AvatarSize.SMALL,
     maxVisible:Int  = 2,
@@ -53,22 +52,22 @@ private fun ChirpStackedAvatarsPreview(){
     ChirpTheme {
         ChirpStackedAvatars(
             avatars = listOf(
-                AvatarUi(
+                ChatParticipantUi(
                     id = "1",
                     username = "Phillip",
                     initials = "PH"
                 ),
-                AvatarUi(
+                ChatParticipantUi(
                     id = "2",
                     username = "Khurram",
                     initials = "SM"
                 ),
-                AvatarUi(
+                ChatParticipantUi(
                     id = "1",
                     username = "Cinderalla",
                     initials = "CI"
                 ),
-                AvatarUi(
+                ChatParticipantUi(
                     id = "1",
                     username = "John Deer",
                     initials = "JD"
