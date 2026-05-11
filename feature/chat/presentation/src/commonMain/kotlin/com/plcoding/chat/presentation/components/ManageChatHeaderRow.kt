@@ -37,7 +37,6 @@ fun ManageChatHeaderRow(
             color = MaterialTheme.colorScheme.extended.textPrimary,
             modifier = Modifier.weight(1f)
         )
-
         IconButton(
             onClick = onCloseClick
         ) {
@@ -47,6 +46,5 @@ fun ManageChatHeaderRow(
                 tint = MaterialTheme.colorScheme.extended.textSecondary
             )
         }
-
     }
 }

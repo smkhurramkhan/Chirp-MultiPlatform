@@ -11,6 +11,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import chirp.feature.chat.presentation.generated.resources.Res
 import chirp.feature.chat.presentation.generated.resources.add
+import chirp.feature.chat.presentation.generated.resources.email_or_username
 import com.plcoding.core.designsystem.components.buttons.ChirpButton
 import com.plcoding.core.designsystem.components.buttons.ChirpButtonStyle
 import com.plcoding.core.designsystem.components.textfields.ChirpTextField
@@ -27,36 +28,33 @@ fun ChatParticipantSearchTextSection(
     error: UiText? = null,
     onFocusChanged: (Boolean) -> Unit
 ) {
-
     Row(
         modifier = modifier
             .padding(
                 horizontal = 20.dp,
                 vertical = 16.dp
             ),
-        verticalAlignment = Alignment.CenterVertically,
+        verticalAlignment = Alignment.Top,
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         ChirpTextField(
-            state =  queryState,
+            state = queryState,
             modifier = Modifier
                 .weight(1f),
+            placeHolder = stringResource(Res.string.email_or_username),
             title = null,
             supportingText = error?.asString(),
-            isError = error!=null,
+            isError = error != null,
             singleLine = true,
-            enabled = true,
             keyboardType = KeyboardType.Email,
             onFocusChanged = onFocusChanged
         )
-
         ChirpButton(
             text = stringResource(Res.string.add),
             onClick = onAddClick,
             style = ChirpButtonStyle.SECONDARY,
             enabled = isSearchEnabled,
-            isLoading = isLoading
+            isLoading = isLoading,
         )
     }
-
 }
