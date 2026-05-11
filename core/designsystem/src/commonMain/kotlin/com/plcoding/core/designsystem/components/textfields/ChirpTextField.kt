@@ -24,7 +24,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun ChirpTextField(
     state: TextFieldState,
     modifier: Modifier = Modifier,
-    placeHolder: String? = null,
+    placeholder: String? = null,
     title: String? = null,
     supportingText: String? = null,
     isError: Boolean = false,
@@ -62,9 +62,9 @@ fun ChirpTextField(
                     modifier = Modifier.fillMaxWidth(),
                     contentAlignment = Alignment.CenterStart
                 ) {
-                    if (state.text.isEmpty() && placeHolder != null) {
+                    if (state.text.isEmpty() && placeholder != null) {
                         Text(
-                            text = placeHolder,
+                            text = placeholder,
                             color = MaterialTheme.colorScheme.extended.textPlaceholder,
                             style = MaterialTheme.typography.bodyMedium
                         )
@@ -85,7 +85,7 @@ fun ChirpTextFieldEmptyPreview() {
         ChirpTextField(
             state = rememberTextFieldState(),
             modifier = Modifier.width(300.dp),
-            placeHolder = "test@test.com",
+            placeholder = "test@test.com",
             title = "Email",
             supportingText = "Please enter your email",
         )
@@ -101,7 +101,7 @@ fun ChirpTextFieldFilledPreview() {
                 initialText = "test@test.com"
             ),
             modifier = Modifier.width(300.dp),
-            placeHolder = "test@test.com",
+            placeholder = "test@test.com",
             title = "Email",
             supportingText = "Please enter your email",
             enabled = true
@@ -118,7 +118,7 @@ fun ChirpTextFieldDisabledPreview() {
                 initialText = "test@test.com"
             ),
             modifier = Modifier.width(300.dp),
-            placeHolder = "test@test.com",
+            placeholder = "test@test.com",
             title = "Email",
             supportingText = "Please enter your email",
             enabled = false
@@ -135,7 +135,7 @@ fun ChirpTextFieldErrorPreview() {
                 initialText = "test@test.com"
             ),
             modifier = Modifier.width(300.dp),
-            placeHolder = "test@test.com",
+            placeholder = "test@test.com",
             title = "Email",
             supportingText = "This is not a valid email",
             isError = true

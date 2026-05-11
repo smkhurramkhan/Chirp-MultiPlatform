@@ -83,7 +83,7 @@ fun LoginScreen(
         ) {
             ChirpTextField(
                 state = state.emailTextFieldState,
-                placeHolder = stringResource(Res.string.email_placeholder),
+                placeholder = stringResource(Res.string.email_placeholder),
                 keyboardType = KeyboardType.Email,
                 enabled = true,
                 singleLine = true,

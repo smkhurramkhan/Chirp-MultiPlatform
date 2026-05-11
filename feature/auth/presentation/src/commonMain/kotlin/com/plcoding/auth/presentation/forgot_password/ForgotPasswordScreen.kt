@@ -59,7 +59,7 @@ fun ForgotPasswordScreen(
             ChirpTextField(
                 state = state.emailTextFieldState,
                 modifier = Modifier.fillMaxWidth(),
-                placeHolder = stringResource(Res.string.email_placeholder),
+                placeholder = stringResource(Res.string.email_placeholder),
                 title = stringResource(Res.string.email),
                 isError = state.errorText != null,
                 supportingText = state.errorText?.asString(),

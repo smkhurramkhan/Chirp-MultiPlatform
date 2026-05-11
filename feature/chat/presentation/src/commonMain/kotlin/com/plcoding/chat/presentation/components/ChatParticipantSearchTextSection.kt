@@ -41,8 +41,8 @@ fun ChatParticipantSearchTextSection(
             state = queryState,
             modifier = Modifier
                 .weight(1f),
-            placeHolder = stringResource(Res.string.email_or_username),
-            title = null,
+            placeholder = stringResource(Res.string.email_or_username),
+            title =null,
             supportingText = error?.asString(),
             isError = error != null,
             singleLine = true,

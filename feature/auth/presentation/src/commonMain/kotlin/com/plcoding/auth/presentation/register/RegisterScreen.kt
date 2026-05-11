@@ -82,7 +82,7 @@ fun RegisterScreen(
             ) {
                 ChirpTextField(
                     state = state.usernameTextState,
-                    placeHolder = stringResource(Res.string.username_placeholder),
+                    placeholder = stringResource(Res.string.username_placeholder),
                     title = stringResource(Res.string.username),
                     supportingText = state.usernameError?.asString()
                         ?: stringResource(Res.string.username_hint),
@@ -97,7 +97,7 @@ fun RegisterScreen(
 
                 ChirpTextField(
                     state = state.emailTextState,
-                    placeHolder = stringResource(Res.string.email_placeholder),
+                    placeholder = stringResource(Res.string.email_placeholder),
                     title = stringResource(Res.string.email),
                     supportingText = state.emailError?.asString(),
                     isError = state.emailError != null,
