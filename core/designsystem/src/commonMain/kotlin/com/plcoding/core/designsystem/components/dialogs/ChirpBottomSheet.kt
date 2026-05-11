@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChirpBottomSheet(
@@ -19,18 +20,19 @@ fun ChirpBottomSheet(
     val sheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = true
     )
-
-    LaunchedEffect( sheetState.isVisible){
-        if(sheetState.isVisible){
+    LaunchedEffect(sheetState.isVisible) {
+        if(sheetState.isVisible) {
             sheetState.expand()
         }
     }
+
     ModalBottomSheet(
         onDismissRequest = onDismiss,
+        sheetState = sheetState,
         dragHandle = null,
         contentWindowInsets = { WindowInsets() },
-        modifier =  modifier.statusBarsPadding()
-    ){
+        modifier = modifier.statusBarsPadding(),
+    ) {
         content()
     }
 }
