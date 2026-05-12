@@ -121,6 +121,7 @@ fun ChatListItemUi(
                     ){
                         append(chat.lastMessageSenderUsername)
                     }
+                    append(":  ")
                     append(chat.lastMessage.content)
                 }
                 Text(
@@ -176,7 +177,7 @@ fun ChatListItemUiLightPreview(){
                     id = "1",
                     chatId = "1",
                     content = "This is a last Message that was sent by Sardar Khurram" +
-                            "and goes over multiple lines to showcase the ellipsis",
+                            " and goes over multiple lines to showcase the ellipsis",
                     createdAt = Clock.System.now(),
                     senderId = "2"
                 ),
@@ -216,7 +217,7 @@ fun ChatListItemUiDarkPreview(){
                     id = "1",
                     chatId = "1",
                     content = "This is a last Message that was sent by Sardar Khurram" +
-                            "and goes over multiple lines to showcase the ellipsis",
+                            " and goes over multiple lines to showcase the ellipsis",
                     createdAt = Clock.System.now(),
                     senderId = "2"
                 ),
@@ -251,7 +252,7 @@ fun ChatListItemUiSinglePreview(){
                     id = "1",
                     chatId = "1",
                     content = "This is a last Message that was sent by Sardar Khurram" +
-                            "and goes over multiple lines to showcase the ellipsis",
+                            " and goes over multiple lines to showcase the ellipsis",
                     createdAt = Clock.System.now(),
                     senderId = "2"
                 ),
