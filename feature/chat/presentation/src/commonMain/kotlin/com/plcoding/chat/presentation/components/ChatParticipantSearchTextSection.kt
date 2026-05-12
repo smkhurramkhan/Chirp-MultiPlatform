@@ -42,7 +42,7 @@ fun ChatParticipantSearchTextSection(
             modifier = Modifier
                 .weight(1f),
             placeholder = stringResource(Res.string.email_or_username),
-            title =null,
+            title = "Chat",
             supportingText = error?.asString(),
             isError = error != null,
             singleLine = true,
