@@ -1,14 +1,10 @@
 package com.plcoding.chirp.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import com.plcoding.auth.presentation.navigation.AuthGraphRoutes
 import com.plcoding.auth.presentation.navigation.authGraph
-import com.plcoding.chat.presentation.chat_list.ChatListRoute
-import com.plcoding.chat.presentation.chat_list.ChatListScreenRoot
 import com.plcoding.chat.presentation.navigation.ChatGraphRoutes
 import com.plcoding.chat.presentation.navigation.chatGraph
 
