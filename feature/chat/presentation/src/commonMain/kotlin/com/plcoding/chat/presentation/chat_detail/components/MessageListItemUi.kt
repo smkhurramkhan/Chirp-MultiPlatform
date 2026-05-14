@@ -1,4 +1,4 @@
-package com.plcoding.chat.presentation.chat_list.components
+package com.plcoding.chat.presentation.chat_detail.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -41,7 +41,7 @@ fun MessageListItemUi(
             is MessageUi.LocalUserMessage -> LocalUserMessage(
                 message = messageUi,
                 onMessageLongClick = onMessageLongClick,
-                onDismissMessageMenu= onDismissMessageMenu,
+                onDismissMessageMenu = onDismissMessageMenu,
                 onDeleteClick = onDeleteClick,
                 onRetryClick = onRetryClick
             )

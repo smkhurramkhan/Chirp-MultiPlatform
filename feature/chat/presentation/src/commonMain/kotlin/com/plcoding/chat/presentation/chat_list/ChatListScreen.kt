@@ -33,7 +33,7 @@ import chirp.feature.chat.presentation.generated.resources.do_you_want_to_logout
 import chirp.feature.chat.presentation.generated.resources.logout
 import com.plcoding.chat.presentation.chat_list.components.ChatListHeader
 import com.plcoding.chat.presentation.chat_list.components.EmptyChatSection
-import com.plcoding.chat.presentation.components.ChatListItemUi
+import com.plcoding.chat.presentation.chat_list.components.ChatListItemUi
 import com.plcoding.chat.presentation.model.ChatUi
 import com.plcoding.core.designsystem.components.brand.ChirpHorizontalDivider
 import com.plcoding.core.designsystem.components.buttons.ChirpFloatingActionButton

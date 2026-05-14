@@ -1,4 +1,4 @@
-package com.plcoding.chat.presentation.chat_list.components
+package com.plcoding.chat.presentation.chat_detail.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
