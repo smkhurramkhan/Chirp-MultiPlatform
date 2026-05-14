@@ -10,7 +10,9 @@
     <string name="profile_settings">Profile Settings</string>
     <string name="logout">Logout</string>
     <string name="no_messages">No Messages</string>
-    <string name="no_messages_subtitle">Create new chat to start messaging</string>
+    <string name="no_chats">No Chats</string>
+    <string name="no_chats_subtitle">Create new chat to start messaging</string>
+    <string name="no_messages_subtitle">Be the first one to send a message</string>
     <string name="do_you_want_to_logout">Do you want to logout?</string>
     <string name="do_you_want_to_logout_desc">You will have to login again to use the app</string>
     <string name="sending">Sending...</string>

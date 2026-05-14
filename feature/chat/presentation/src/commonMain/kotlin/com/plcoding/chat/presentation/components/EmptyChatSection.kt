@@ -1,4 +1,4 @@
-package com.plcoding.chat.presentation.chat_list.components
+package com.plcoding.chat.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import chirp.feature.chat.presentation.generated.resources.Res
 import chirp.feature.chat.presentation.generated.resources.empty_chat
 import chirp.feature.chat.presentation.generated.resources.no_messages
-import chirp.feature.chat.presentation.generated.resources.no_messages_subtitle
 import com.plcoding.core.designsystem.theme.ChirpTheme
 import com.plcoding.core.designsystem.theme.extended
 import com.plcoding.core.presentation.util.DeviceConfiguration
@@ -27,7 +26,9 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun EmptyChatSection(
+fun EmptyListSection(
+    title: String,
+    description: String,
     modifier: Modifier = Modifier
 ) {
     val configuration = currentDeviceConfiguration()
@@ -49,13 +50,13 @@ fun EmptyChatSection(
         )
         Spacer(modifier = Modifier.height(4.dp))
         Text(
-            text = stringResource(Res.string.no_messages),
+            text = title,
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.extended.textPrimary
         )
 
         Text(
-            text = stringResource(Res.string.no_messages_subtitle),
+            text = description,
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.extended.textSecondary
         )
@@ -67,7 +68,10 @@ fun EmptyChatSection(
 private fun Preview() {
     ChirpTheme {
         Box(modifier = Modifier.fillMaxSize()) {
-            EmptyChatSection()
+            EmptyListSection(
+                title = "No Messages",
+                description = "Message list is empty"
+            )
         }
     }
 
