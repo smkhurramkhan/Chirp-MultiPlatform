@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.plcoding.core.designsystem.theme.ChirpTheme
 import com.plcoding.core.designsystem.theme.extended
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -49,8 +50,10 @@ fun DateChip(
 @Composable
 @Preview
 private fun DateChipPreview() {
-    DateChip(
-        "May 4, 2026",
-        modifier = Modifier.width(100.dp)
-    )
+    ChirpTheme(darkTheme = true) {
+        DateChip(
+            "May 4, 2026",
+            modifier = Modifier.width(120.dp)
+        )
+    }
 }
