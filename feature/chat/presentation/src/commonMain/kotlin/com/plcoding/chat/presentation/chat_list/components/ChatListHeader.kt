@@ -29,6 +29,8 @@ import com.plcoding.chat.presentation.components.ChatHeader
 import com.plcoding.core.designsystem.components.avatar.ChatParticipantUi
 import com.plcoding.core.designsystem.components.avatar.ChirpAvatarPhoto
 import com.plcoding.core.designsystem.components.brand.ChirpHorizontalDivider
+import com.plcoding.core.designsystem.components.dropdown.ChirpDropDownMenu
+import com.plcoding.core.designsystem.components.dropdown.DropDownItem
 import com.plcoding.core.designsystem.theme.ChirpTheme
 import com.plcoding.core.designsystem.theme.extended
 import org.jetbrains.compose.resources.stringResource
@@ -103,64 +105,24 @@ fun ProfileAvatarSection(
             )
         }
 
-        DropdownMenu(
-            expanded = isMenuOpen,
-            onDismissRequest = onDismissMenu,
-            shape = RoundedCornerShape(16.dp),
-            containerColor = MaterialTheme.colorScheme.surface,
-            border = BorderStroke(
-                width = 1.dp,
-                color = MaterialTheme.colorScheme.extended.surfaceOutline
+        ChirpDropDownMenu(
+            isMenuOpen = isMenuOpen,
+            onDismissMenu = onDismissMenu,
+            items = listOf(
+                DropDownItem(
+                    title =  stringResource(Res.string.profile_settings),
+                    icon = vectorResource(DesignSystems.drawable.setting_icon),
+                    contentColor = MaterialTheme.colorScheme.extended.textSecondary,
+                    onClick = onProfileSettingsClick
+                ),
+                DropDownItem(
+                    title = stringResource(Res.string.logout),
+                    icon = vectorResource(DesignSystems.drawable.log_out_icon),
+                    contentColor =  MaterialTheme.colorScheme.extended.destructiveHover,
+                    onClick = onLogoutClick
+                )
             )
-        ){
-            DropdownMenuItem(
-                text = {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        Icon(
-                            imageVector = vectorResource(DesignSystems.drawable.setting_icon),
-                            contentDescription = stringResource(Res.string.profile_settings),
-                            tint = MaterialTheme.colorScheme.extended.textSecondary,
-                            modifier = Modifier.size(20.dp)
-                        )
-                        Text(
-                            text = stringResource(Res.string.profile_settings),
-                            color = MaterialTheme.colorScheme.extended.textSecondary,
-                            fontWeight = FontWeight.Medium
-                        )
-                    }
-                },
-                onClick = {
-                    onDismissMenu()
-                    onProfileSettingsClick()
-                }
-            )
-            ChirpHorizontalDivider()
-            DropdownMenuItem(
-                text = {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        Icon(
-                            imageVector = vectorResource(DesignSystems.drawable.log_out_icon),
-                            contentDescription = stringResource(Res.string.logout),
-                            tint = MaterialTheme.colorScheme.extended.destructiveHover,
-                            modifier = Modifier.size(20.dp)
-                        )
-                        Text(
-                            text = stringResource(Res.string.logout),
-                            color = MaterialTheme.colorScheme.extended.destructiveHover,
-                            fontWeight = FontWeight.Medium
-                        )
-                    }
-                },
-                onClick = {
-                    onDismissMenu()
-                    onLogoutClick()
-                }
-            )
-        }
+        )
     }
 }
 
