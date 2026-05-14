@@ -67,7 +67,7 @@ fun ChirpMultiLineTextField(
             },
             cursorBrush = SolidColor(MaterialTheme.colorScheme.extended.textPrimary),
             decorator = { innerBox ->
-                if (placeHolder != null && state.text.isNotEmpty()) {
+                if (placeHolder != null && state.text.isEmpty()) {
                     Text(
                         text = placeHolder,
                         color = MaterialTheme.colorScheme.extended.textPlaceholder,
