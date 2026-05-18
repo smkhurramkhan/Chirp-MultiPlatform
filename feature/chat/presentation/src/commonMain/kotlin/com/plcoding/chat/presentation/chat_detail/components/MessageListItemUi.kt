@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.plcoding.chat.domain.models.ChatMessageDeliveryStatus
 import com.plcoding.chat.presentation.model.MessageUi
+import com.plcoding.chat.presentation.util.getChatBubbleColorForUser
 import com.plcoding.core.designsystem.components.avatar.ChatParticipantUi
 import com.plcoding.core.designsystem.theme.ChirpTheme
 import com.plcoding.core.designsystem.theme.extended
@@ -45,7 +46,10 @@ fun MessageListItemUi(
                 onDeleteClick = { onDeleteClick(messageUi) },
                 onRetryClick = { onRetryClick(messageUi) }
             )
-            is MessageUi.OtherUserMessage -> OtherUserMessage(message = messageUi)
+            is MessageUi.OtherUserMessage -> OtherUserMessage(
+                message = messageUi,
+                color = getChatBubbleColorForUser(messageUi.sender.id)
+            )
         }
     }
 }
