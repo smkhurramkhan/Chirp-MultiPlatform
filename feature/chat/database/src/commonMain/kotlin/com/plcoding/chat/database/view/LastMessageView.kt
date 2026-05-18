@@ -2,7 +2,18 @@ package com.plcoding.chat.database.view
 
 import androidx.room.DatabaseView
 
-@DatabaseView
+@DatabaseView(
+    viewName = "last_message_view_per_chat",
+    value = """
+        SELECT m1.*
+        FROM chatmessageentity m1
+        JOIN(
+        SELECT chatId, MAX(timeStamp) AS max_timestamp
+        FROM chatmessageentity
+        GROUP BY chatId
+        ) m2 on m1.chatId = m2.chatId AND m1.timeStamp = m2.max_timestamp
+    """
+)
 data class LastMessageView(
     val messageId: String,
     val chatId: String,
