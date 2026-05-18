@@ -6,7 +6,6 @@ import androidx.room.Relation
 data class MessageWithSender(
     @Embedded
     val message: ChatMessageEntity,
-
     @Relation(
         parentColumn = "senderId",
         entityColumn = "userId"

@@ -2,7 +2,7 @@ package com.plcoding.chat.database.entites
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import androidx.room.ForeignKey.Companion.CASCADE
+import androidx.room.Index
 
 @Entity(
     primaryKeys = ["chatId", "userId"],
@@ -11,14 +11,18 @@ import androidx.room.ForeignKey.Companion.CASCADE
             entity = ChatEntity::class,
             parentColumns = ["chatId"],
             childColumns = ["chatId"],
-            onDelete = CASCADE
+            onDelete = ForeignKey.CASCADE
         ),
         ForeignKey(
             entity = ChatParticipantEntity::class,
             parentColumns = ["userId"],
-            childColumns = ["userId "],
-            onDelete = CASCADE
-        )
+            childColumns = ["userId"],
+            onDelete = ForeignKey.CASCADE
+        ),
+    ],
+    indices = [
+        Index(value =["chatId"]),
+        Index(value =["userId"]),
     ]
 
 )

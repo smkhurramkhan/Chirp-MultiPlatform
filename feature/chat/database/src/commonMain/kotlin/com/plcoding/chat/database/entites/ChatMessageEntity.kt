@@ -3,6 +3,7 @@ package com.plcoding.chat.database.entites
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.Companion.CASCADE
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
@@ -13,6 +14,9 @@ import androidx.room.PrimaryKey
             childColumns = ["chatId"],
             onDelete = CASCADE
         )
+    ],
+    indices = [
+        Index("chatId")
     ]
 )
 data class ChatMessageEntity(

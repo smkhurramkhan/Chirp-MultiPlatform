@@ -8,14 +8,12 @@ import com.plcoding.chat.database.view.LastMessageView
 data class ChatWithParticipants(
     @Embedded
     val chat: ChatEntity,
-
     @Relation(
         parentColumn = "chatId",
         entityColumn = "userId",
         associateBy = Junction(ChatParticipantCrossRef::class)
     )
-    val participant:List<ChatParticipantEntity>,
-
+    val participants: List<ChatParticipantEntity>,
     @Relation(
         parentColumn = "chatId",
         entityColumn = "chatId",
@@ -24,22 +22,19 @@ data class ChatWithParticipants(
     val lastMessage: LastMessageView?
 )
 
-
 data class ChatInfoEntity(
     @Embedded
     val chat: ChatEntity,
-
     @Relation(
         parentColumn = "chatId",
         entityColumn = "userId",
         associateBy = Junction(ChatParticipantCrossRef::class)
     )
-    val participant:List<ChatParticipantEntity>,
-
+    val participants: List<ChatParticipantEntity>,
     @Relation(
         parentColumn = "chatId",
         entityColumn = "chatId",
-        entity= ChatMessageEntity::class
+        entity = ChatMessageEntity::class
     )
-    val messagesWithSender: List<MessageWithSender>
+    val messagesWithSenders: List<MessageWithSender>
 )
