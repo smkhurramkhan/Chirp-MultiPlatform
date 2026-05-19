@@ -19,5 +19,6 @@ data class LastMessageView(
     val chatId: String,
     val senderId: String,
     val content: String,
-    val timeStamp: String
+    val timeStamp: Long,
+    val deliveryStatus: String
 )

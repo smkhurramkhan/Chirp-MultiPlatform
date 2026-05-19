@@ -1,7 +1,7 @@
 package com.plcoding.chat.data.chat
 
-import com.plcoding.chat.data.chat.dto.ChatParticipantDto
-import com.plcoding.chat.data.chat.mappers.toDomain
+import com.plcoding.chat.data.dto.ChatParticipantDto
+import com.plcoding.chat.data.mappers.toDomain
 import com.plcoding.chat.domain.chat.ChatParticipantService
 import com.plcoding.chat.domain.models.ChatParticipant
 import com.plcoding.core.data.networking.get

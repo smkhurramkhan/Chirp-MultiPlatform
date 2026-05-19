@@ -269,7 +269,8 @@ private fun ChatDetailMessagesPreview() {
                         content = "This is a last Message that was sent by Sardar Khurram" +
                                 " and goes over multiple lines to showcase the ellipsis",
                         createdAt = Clock.System.now(),
-                        senderId = "2"
+                        senderId = "2",
+                        deliveryStatus = ChatMessageDeliveryStatus.SENT
                     ),
                     lastMessageSenderUsername = "S M Khurram Khan"
                 ),

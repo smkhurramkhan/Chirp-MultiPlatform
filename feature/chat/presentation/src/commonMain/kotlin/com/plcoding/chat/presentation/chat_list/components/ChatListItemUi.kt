@@ -23,6 +23,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.plcoding.chat.domain.models.ChatMessage
+import com.plcoding.chat.domain.models.ChatMessageDeliveryStatus
 import com.plcoding.chat.presentation.components.ChatItemHeaderRow
 import com.plcoding.chat.presentation.model.ChatUi
 import com.plcoding.core.designsystem.components.avatar.ChatParticipantUi
@@ -130,7 +131,8 @@ fun ChatListItemUiLightPreview() {
                     content = "This is a last Message that was sent by Sardar Khurram" +
                             " and goes over multiple lines to showcase the ellipsis",
                     createdAt = Clock.System.now(),
-                    senderId = "2"
+                    senderId = "2",
+                    deliveryStatus = ChatMessageDeliveryStatus.SENT
                 ),
                 lastMessageSenderUsername = "S M Khurram Khan"
             )
@@ -170,7 +172,8 @@ fun ChatListItemUiDarkPreview() {
                     content = "This is a last Message that was sent by Sardar Khurram" +
                             " and goes over multiple lines to showcase the ellipsis",
                     createdAt = Clock.System.now(),
-                    senderId = "2"
+                    senderId = "2",
+                    deliveryStatus = ChatMessageDeliveryStatus.SENT
                 ),
                 lastMessageSenderUsername = "S M Khurram Khan"
             )
@@ -205,7 +208,8 @@ fun ChatListItemUiSinglePreview() {
                     content = "This is a last Message that was sent by Sardar Khurram" +
                             " and goes over multiple lines to showcase the ellipsis",
                     createdAt = Clock.System.now(),
-                    senderId = "2"
+                    senderId = "2",
+                    deliveryStatus = ChatMessageDeliveryStatus.SENT
                 ),
                 lastMessageSenderUsername = "S M Khurram Khan"
             )

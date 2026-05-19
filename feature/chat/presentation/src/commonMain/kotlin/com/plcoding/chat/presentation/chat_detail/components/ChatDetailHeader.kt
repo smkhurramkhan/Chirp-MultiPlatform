@@ -26,6 +26,7 @@ import chirp.feature.chat.presentation.generated.resources.leave_chat
 import chirp.feature.chat.presentation.generated.resources.open_chat_options_menu
 import chirp.feature.chat.presentation.generated.resources.users_icon
 import com.plcoding.chat.domain.models.ChatMessage
+import com.plcoding.chat.domain.models.ChatMessageDeliveryStatus
 import com.plcoding.chat.presentation.components.ChatItemHeaderRow
 import com.plcoding.chat.presentation.model.ChatUi
 import com.plcoding.core.designsystem.components.avatar.ChatParticipantUi
@@ -152,7 +153,8 @@ fun ChatDetailHeaderSinglePreview() {
                         content = "This is a last Message that was sent by Sardar Khurram" +
                                 " and goes over multiple lines to showcase the ellipsis",
                         createdAt = Clock.System.now(),
-                        senderId = "2"
+                        senderId = "2",
+                        deliveryStatus = ChatMessageDeliveryStatus.SENT
                     ),
                     lastMessageSenderUsername = "S M Khurram Khan"
                 ),
@@ -202,7 +204,8 @@ fun ChatDetailHeaderGroupPreview() {
                         content = "This is a last Message that was sent by Sardar Khurram" +
                                 " and goes over multiple lines to showcase the ellipsis",
                         createdAt = Clock.System.now(),
-                        senderId = "2"
+                        senderId = "2",
+                        deliveryStatus = ChatMessageDeliveryStatus.SENT
                     ),
                     lastMessageSenderUsername = "S M Khurram Khan"
                 ),
