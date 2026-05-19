@@ -40,9 +40,14 @@ interface ChatDao {
     fun getChatsWithActiveParticipants(): Flow<List<ChatWithParticipants>>
 
 
-    @Query("SELECT * FROM chatentity WHERE chatId = :id")
+    @Query("""
+        SELECT c.*
+        FROM chatentity c 
+        JOIN chatparticipantcrossref cpcr ON c.chatId = cpcr.chatId
+        WHERE c.chatId = :chatId AND cpcr.isActive = true
+    """)
     @Transaction
-    suspend fun getChatById(id: String): ChatWithParticipants?
+    suspend fun getChatById(chatId: String): ChatWithParticipants?
 
     @Query("DELETE FROM chatentity")
     suspend fun deleteAllChats()
