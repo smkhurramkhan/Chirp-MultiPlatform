@@ -3,6 +3,7 @@ package com.plcoding.chat.domain.chat
 import com.plcoding.chat.domain.models.Chat
 import com.plcoding.chat.domain.models.ChatInfo
 import com.plcoding.core.domain.util.DataError
+import com.plcoding.core.domain.util.EmptyResult
 import com.plcoding.core.domain.util.Result
 import kotlinx.coroutines.flow.Flow
 
@@ -13,4 +14,6 @@ interface ChatService {
     suspend fun getChats(): Result<List<Chat>, DataError.Remote>
 
     suspend fun getChatById(chatId: String): Result<Chat, DataError.Remote>
+
+    suspend fun leaveChat(chatId: String): EmptyResult<DataError.Remote>
 }
