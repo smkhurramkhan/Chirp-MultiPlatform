@@ -8,7 +8,6 @@ import chirp.feature.chat.presentation.generated.resources.Res
 import chirp.feature.chat.presentation.generated.resources.error_participant_not_found
 import com.plcoding.chat.domain.chat.ChatParticipantService
 import com.plcoding.chat.domain.chat.ChatRepository
-import com.plcoding.chat.domain.chat.ChatService
 import com.plcoding.chat.presentation.mappers.toUi
 import com.plcoding.core.domain.util.DataError
 import com.plcoding.core.domain.util.onFailure
