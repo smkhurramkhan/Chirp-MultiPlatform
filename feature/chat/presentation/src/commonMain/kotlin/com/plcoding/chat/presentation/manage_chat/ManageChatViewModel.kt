@@ -17,6 +17,7 @@ import com.plcoding.core.domain.util.onSuccess
 import com.plcoding.core.presentation.util.UiText
 import com.plcoding.core.presentation.util.toUiText
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -33,7 +34,12 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.seconds
 
-@OptIn(ExperimentalCoroutinesApi::class)
+@OptIn(
+    ExperimentalCoroutinesApi::class,
+    FlowPreview::class
+)
+
+
 class ManageChatViewModel(
     private val chatParticipantService: ChatParticipantService,
     private val chatRepository: ChatRepository
@@ -69,6 +75,7 @@ class ManageChatViewModel(
             started = SharingStarted.WhileSubscribed(5_000L),
             initialValue = ManageChatState()
         )
+
 
     private val searchFlow = snapshotFlow { _state.value.queryTextState.text.toString() }
         .debounce(1.seconds)
