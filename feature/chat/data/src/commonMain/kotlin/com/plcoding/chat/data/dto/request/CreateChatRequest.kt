@@ -1,4 +1,4 @@
-package com.plcoding.chat.data.dto
+package com.plcoding.chat.data.dto.request
 
 import kotlinx.serialization.Serializable
 

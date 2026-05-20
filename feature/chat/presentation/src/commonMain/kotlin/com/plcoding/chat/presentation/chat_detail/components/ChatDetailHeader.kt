@@ -89,6 +89,7 @@ fun ChatDetailHeader(
             Spacer(modifier = Modifier.weight(1f))
         }
 
+
         Box {
             ChirpIconButton(
                 onClick = onChatOptionsClick
