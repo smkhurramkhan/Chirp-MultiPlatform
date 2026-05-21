@@ -4,6 +4,7 @@ import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import com.plcoding.chat.data.chat.KtorChatParticipantService
 import com.plcoding.chat.data.chat.KtorChatService
 import com.plcoding.chat.data.chat.OfflineFirstChatRepository
+import com.plcoding.chat.data.lifecycle.AppLifecycleObserver
 import com.plcoding.chat.database.DatabaseFactory
 import com.plcoding.chat.domain.chat.ChatParticipantService
 import com.plcoding.chat.domain.chat.ChatRepository
@@ -17,6 +18,7 @@ expect val platformChatDataModule: Module
 
 val chatDataModule = module {
     includes(platformChatDataModule)
+
     singleOf(::KtorChatParticipantService) bind ChatParticipantService::class
     singleOf(::KtorChatService) bind ChatService::class
     singleOf(::OfflineFirstChatRepository) bind ChatRepository::class

@@ -13,7 +13,7 @@ import com.plcoding.chat.database.entites.ChatParticipantCrossRef
 import com.plcoding.chat.database.entites.ChatParticipantEntity
 import com.plcoding.chat.database.view.LastMessageView
 
-@ConstructedBy(ChirpChatDatabaseConstructor::class)
+
 @Database(
     entities = [
         ChatEntity::class,
@@ -26,6 +26,7 @@ import com.plcoding.chat.database.view.LastMessageView
     ],
     version = 1
 )
+@ConstructedBy(ChirpChatDatabaseConstructor::class)
 abstract class ChirpChatDatabase : RoomDatabase() {
 
     abstract val chatDao: ChatDao
