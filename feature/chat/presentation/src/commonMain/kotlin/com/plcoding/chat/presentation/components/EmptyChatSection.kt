@@ -26,7 +26,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun EmptyListSection(
+fun EmptySection(
     title: String,
     description: String,
     modifier: Modifier = Modifier
@@ -68,7 +68,7 @@ fun EmptyListSection(
 private fun Preview() {
     ChirpTheme {
         Box(modifier = Modifier.fillMaxSize()) {
-            EmptyListSection(
+            EmptySection(
                 title = "No Messages",
                 description = "Message list is empty"
             )
