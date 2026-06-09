@@ -2,7 +2,6 @@ package com.plcoding.chat.database.entites
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import androidx.room.ForeignKey.Companion.CASCADE
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
@@ -12,11 +11,12 @@ import androidx.room.PrimaryKey
             entity = ChatEntity::class,
             parentColumns = ["chatId"],
             childColumns = ["chatId"],
-            onDelete = CASCADE
+            onDelete = ForeignKey.CASCADE
         )
     ],
     indices = [
-        Index("chatId")
+        Index("chatId"),
+        Index("timestamp"),
     ]
 )
 data class ChatMessageEntity(
@@ -25,7 +25,7 @@ data class ChatMessageEntity(
     val chatId: String,
     val senderId: String,
     val content: String,
-    val timeStamp: Long,
+    val timestamp: Long,
     val deliveryStatus: String,
-    val deliveryStatusTimeStamp: Long = timeStamp
+    val deliveryStatusTimestamp: Long = timestamp
 )

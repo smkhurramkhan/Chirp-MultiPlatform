@@ -41,7 +41,6 @@ import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
-import kotlin.coroutines.coroutineContext
 import kotlin.time.Duration.Companion.seconds
 
 @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
@@ -86,7 +85,7 @@ class KtorWebSocketConnector(
         )
 
 
-    val message = combine(
+    val messages = combine(
         sessionStorage.observeAuthInfo(),
         isConnected,
         isInForeground
