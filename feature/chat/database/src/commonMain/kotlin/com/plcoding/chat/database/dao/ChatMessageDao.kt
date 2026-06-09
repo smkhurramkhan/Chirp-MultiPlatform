@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface ChatMessageDao {
 
     @Upsert
-    suspend fun upsertMessage(messages: ChatMessageEntity)
+    suspend fun upsertMessage(message: ChatMessageEntity)
 
     @Upsert
     suspend fun upsertMessages(messages: List<ChatMessageEntity>)
@@ -21,9 +21,16 @@ interface ChatMessageDao {
     @Query("DELETE FROM chatmessageentity WHERE messageId IN (:messageIds)")
     suspend fun deleteMessageById(messageIds: List<String>)
 
-    @Query("SELECT * FROM chatmessageentity WHERE chatId =:chatId ORDER BY timeStamp DESC")
-    fun getMessageByChatId(chatId: String) : Flow<List<ChatMessageEntity>>
+    @Query("SELECT * FROM chatmessageentity WHERE chatId = :chatId ORDER BY timestamp DESC")
+    fun getMessagesByChatId(chatId: String): Flow<List<ChatMessageEntity>>
 
     @Query("SELECT * FROM chatmessageentity WHERE messageId = :messageId")
-    fun getMessageById(messageId: String) : Flow<List<ChatMessageEntity>>
+    suspend fun getMessageById(messageId: String): ChatMessageEntity?
+
+    @Query("""
+        UPDATE chatmessageentity
+        SET deliveryStatus = :status, deliveryStatusTimestamp = :timestamp
+        WHERE messageId = :messageId
+    """)
+    suspend fun updateDeliveryStatus(messageId: String, status: String, timestamp: Long)
 }
