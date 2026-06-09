@@ -15,8 +15,9 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(libs.kotlin.stdlib)
-                implementation(projects.core.domain)
+
                 implementation(projects.core.data)
+                implementation(projects.core.domain)
                 implementation(projects.feature.chat.domain)
                 implementation(projects.feature.chat.database)
 
@@ -25,17 +26,12 @@ kotlin {
             }
         }
 
-
         androidMain {
             dependencies {
-                // Add Android-specific dependencies here. Note that this source set depends on
-                // commonMain by default and will correctly pull the Android artifacts of any KMP
-                // dependencies declared in commonMain.
                 implementation(libs.koin.android)
                 implementation(libs.androidx.lifecycle.process)
             }
         }
-
 
         iosMain {
             dependencies {
@@ -48,10 +44,10 @@ kotlin {
         }
     }
 
-    targets.withType<KotlinNativeTarget>() {
+    targets.withType<KotlinNativeTarget> {
         compilations.getByName("main") {
             cinterops {
-                create("network"){
+                create("network") {
                     defFile(file("src/nativeInterop/cinterop/network.def"))
                 }
             }
